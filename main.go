@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/wendellast/Maybe/router"
 
 func main() {
-	fmt.Print("Heelo")
+	router.Initializer()
 }
