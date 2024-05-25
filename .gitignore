@@ -1,2 +1,9 @@
 trash
 .vscode
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+db/
