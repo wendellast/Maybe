@@ -26,3 +26,36 @@ func NewLogger(prefix string) *Logger {
 		writer:  writer,
 	}
 }
+
+func (l *Logger) Debug(v ...interface{}) {
+	l.debug.Println(v...)
+}
+
+func (l *Logger) Info(v ...interface{}) {
+	l.info.Println(v...)
+}
+
+func (l *Logger) Warning(v ...interface{}) {
+	l.warning.Println(v...)
+}
+
+func (l *Logger) Error(v ...interface{}) {
+	l.err.Println(v...)
+}
+
+// Formated
+func (l *Logger) Debugf(format string, v ...interface{}) {
+	l.debug.Println(format, v...)
+}
+
+func (l *Logger) Infof(format string, v ...interface{}) {
+	l.info.Println(format, v...)
+}
+
+func (l *Logger) Warningf(format string, v ...interface{}) {
+	l.warning.Println(format, v...)
+}
+
+func (l *Logger) Errof(format string, v ...interface{}) {
+	l.err.Println(format, v...)
+}
