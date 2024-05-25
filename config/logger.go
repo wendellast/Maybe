@@ -45,17 +45,17 @@ func (l *Logger) Error(v ...interface{}) {
 
 // Formated
 func (l *Logger) Debugf(format string, v ...interface{}) {
-	l.debug.Println(format, v...)
+	l.debug.Printf(format, v...)
 }
 
 func (l *Logger) Infof(format string, v ...interface{}) {
-	l.info.Println(format, v...)
+	l.info.Printf(format, v...)
 }
 
 func (l *Logger) Warningf(format string, v ...interface{}) {
-	l.warning.Println(format, v...)
+	l.warning.Printf(format, v...)
 }
 
 func (l *Logger) Errof(format string, v ...interface{}) {
-	l.err.Println(format, v...)
+	l.err.Printf(format, v...)
 }
