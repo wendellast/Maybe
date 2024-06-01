@@ -17,7 +17,8 @@ type CreateOpeningRequest struct {
 
 func (r *CreateOpeningRequest) Validade() error {
 	if r.Role == "" && r.Company == "" && r.Location == "" && r.Link == "" && r.Remote != nil && r.Salary <= 0 {
-		fmt.Errorf("Erro body is empty")
+		return fmt.Errorf("Erro body is empty")
+
 	}
 	if r.Role == "" {
 		return errParamIsRequired("role", "string")
@@ -38,4 +39,21 @@ func (r *CreateOpeningRequest) Validade() error {
 		return errParamIsRequired("salary", "int64")
 	}
 	return nil
+}
+
+type UpdateOpeningRequest struct {
+	Role     string `json:"role"`
+	Company  string `json:"company"`
+	Location string `json:"location"`
+	Remote   *bool  `json:"remote"`
+	Link     string `json:"link"`
+	Salary   int64  `json:"salary"`
+}
+
+func (r *UpdateOpeningRequest) Validade() error {
+	if r.Role == "" || r.Company == "" || r.Location == "" || r.Link == "" || r.Remote != nil || r.Salary <= 0 {
+		return nil
+	}
+
+	return fmt.Errorf("at least one valid field must be provied")
 }
