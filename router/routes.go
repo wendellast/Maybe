@@ -13,6 +13,10 @@ func InitializeRoutes(router *gin.Engine) {
 	handler.InitializerHandler()
 	basePath := "/api/v1"
 
+	router.GET("/", func(c *gin.Context) {
+		c.Redirect(301, "/swagger/index.html")
+	})
+
 	docs.SwaggerInfo.BasePath = basePath
 	v1 := router.Group(basePath)
 	{
